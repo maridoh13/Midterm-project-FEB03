@@ -1,3 +1,7 @@
+const mapsURL = require('./public/scripts/mapFetcher')
+
+console.log(mapsURL)
+
 // load .env data into process.env
 require('dotenv').config();
 
@@ -48,6 +52,11 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+
+app.get("/static", (req, res) => {
+  res.render("maps-static.ejs");
 });
 
 app.listen(PORT, () => {

@@ -27,7 +27,7 @@ function initMap() {
   );
 
   for (let i = 0; i < places.length; i++) {
-    let nameMarker = places[i].name;
+    let nameMarker = places[i].name;  // needs dynamic variables
     let infoWin = places[i].infoWin;
 
     nameMarker = new google.maps.Marker({

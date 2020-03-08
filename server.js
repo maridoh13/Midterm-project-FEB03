@@ -52,7 +52,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// Create map page
+app.get("/createmaps", (req, res) => {
+  res.render("create-maps.ejs");
+});
 
+
+// Google map with markers
 app.get("/static", (req, res) => {
   res.render("maps-static.ejs");
 });

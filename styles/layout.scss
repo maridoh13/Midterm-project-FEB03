@@ -1,9 +1,48 @@
 // See: https://sass-lang.com/
 
 body {
+  margin-top: 150px;
   background-color: #EEE;
+  color: #222;
 
-  h1 {
-    color: #244751;
-  }
+  #map {
+    height: 400px;
+    width: 100%;
+   }
+
+   .map {
+    margin-top: 20px;
+   }
+
+   header {
+     .navbar {
+      padding: 20px;
+     }
+
+     .navbar li {
+       padding-right: 20px;;
+     }
+
+     .nav-link {
+       font-size: 1.1em !important
+     }
+   }
+
+   .categories {
+     width: 100%;
+     padding-top: 20px;
+   }
+
+
+   .categories hr {
+     border-top: 2px solid #b4b4b4;
+     width: 100%;
+     margin-top: 1.3rem;
+     margin-bottom: 35px;
+   }
+
+   .cards {
+      display: flex;
+      margin-bottom: 30px;
+   }
 }

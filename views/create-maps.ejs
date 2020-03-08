@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/public/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/public/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/public/styles/create-maps.css" type="text/css" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -18,6 +18,10 @@
       <%- include partials/_header.ejs %>
     </header>
     <h1>Create maps page</h1>
+    <div class="container map">
+      <h3>My Google Maps Demo</h3>
+      <div id="map"></div>
+    </div>
     <button type="type" class="btn btn-outline-secondary btn-md">Edit</button>
 
 

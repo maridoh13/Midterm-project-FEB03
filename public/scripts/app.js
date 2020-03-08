@@ -1,4 +1,5 @@
 $(() => {
+  alert("TESTING")
   $.ajax({
     method: "GET",
     url: "/api/users"

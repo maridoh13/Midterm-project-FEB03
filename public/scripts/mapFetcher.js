@@ -1,33 +1,51 @@
-  const initMap = () => {
-    // The locations
-    var vancity = {lat: 49.2945789, lng: -123.1182459};
-    var gyu = {lat: 49.280058, lng: -123.1252331};
-    var sushi = {lat: 49.2794237, lng: -123.1078451};
+// Map function
 
-
-    // The map
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 12, center: vancity});
-
-    var marker1 = new google.maps.Marker({position: gyu, map: map, animation: google.maps.Animation.DROP});
-    var marker2 = new google.maps.Marker({position: sushi, map: map, animation: google.maps.Animation.DROP});
-
+function initMap() {
+  const point1 = {
+    name: "Gyu",
+    lat: 49.280058,
+    long: -123.1252331,
+    content: "Best Japanese BBQ",
+    infoWin: "infoG"
   };
 
+  const point2 = {
+    name: "SushiDen",
+    lat: 49.2794237,
+    long: -123.1078451,
+    content: "Cheapest Sushi!",
+    infoWin: "infoS"
+  }
+
+  let places = [point1, point2];
 
 
-  // You can use a LatLng literal in place of a google.maps.LatLng object when
-  // creating the Marker object. Once the Marker object is instantiated, its
-  // position will be available as a google.maps.LatLng object. In this case,
-  // we retrieve the marker's position using the
-  // google.maps.LatLng.getPosition() method.
+  // The map
+  var vancity = { lat: 49.2945789, lng: -123.1182459 };
+  var map = new google.maps.Map(
+    document.getElementById('map'), { zoom: 12, center: vancity }
+  );
 
-  // var infowindow = new google.maps.InfoWindow({
-  //   content: '<p>Marker Location:' + marker.getPosition() + '</p>'
-  // });
+  for (let i = 0; i < places.length; i++) {
+    let nameMarker = places[i].name;
+    let infoWin = places[i].infoWin;
 
-  // google.maps.event.addListener(marker, 'click', function() {
-  //   infowindow.open(map, marker);
-  // });
-  // google.maps.event.addDomListener(window, 'load', initialize);
+    nameMarker = new google.maps.Marker({
+      position: { lat: places[i].lat, lng: places[i].long },
+      map: map,
+      animation: google.maps.Animation.DROP
+    });
+
+    infoWin = new google.maps.InfoWindow({
+      content: places[i].content
+    });
+
+    nameMarker.addListener('click', function () {
+      infoWin.open(map, nameMarker);
+    });
+
+  }
+
+};
+
 

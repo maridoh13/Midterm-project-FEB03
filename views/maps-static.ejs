@@ -16,26 +16,10 @@
     <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=initMap">
-    </script>
-    <script>
-      function initMap() {
-      // The locations
-      var vancity = {lat: 49.2945789, lng: -123.1182459};
-      var gyu = {lat: 49.280058, lng: -123.1252331};
-      var sushi = {lat: 49.2794237, lng: -123.1078451};
+    <script src="../public/scripts/mapFetcher.js"> </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=initMap"
+    async defer></script>
 
-
-      // The map
-      var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 12, center: vancity});
-
-      var marker1 = new google.maps.Marker({position: gyu, map: map, animation: google.maps.Animation.DROP});
-      var marker2 = new google.maps.Marker({position: sushi, map: map, animation: google.maps.Animation.DROP});
-
-      };
-    </script>
   </body>
 </html>
 

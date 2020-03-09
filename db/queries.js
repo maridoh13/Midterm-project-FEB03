@@ -19,16 +19,30 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-browse(cb);
+// browse(cb);
 
-const mapsWithAssociatedPoints = (id, cb) => {
-  db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [id])
+const mapsWithAssociatedPoints = (mapId) => {
+  return db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [mapId])
   .then(data => {
-    console.log(data.rows[0])
+    return data.rows[0];
+  })
+  .catch(err => {
+    console.log('Error: ', err);
   })
 }
-// mapsWithAssociatedPoints();
+// mapsWithAssociatedPoints(2);
 
+const addMyPoints = (point) => {
+  return db.query(`INSERT INTO points (user_id, map_id, name, address, lat, lng, type)
+                  VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *; `,
+            [point.user_id, point.map.id, point.name, point.address, point.lat, point.lng, point.type])
+    .then(res => {
+      return res.rows;
+    })
+    .catch(err => {
+      console.log('Error: ', err);
+    })
+}
 
 
 // NOT FINISHED

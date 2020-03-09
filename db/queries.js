@@ -7,9 +7,9 @@ const db = new Pool({
   database: 'midterm'
 });
 
-// const cb = function(x, data) {
-//   console.log(data);
-// }
+const cb = function(x, data) {
+  console.log(data);
+}
 
 const browse = (cb) => {
   db.query(`SELECT * FROM points;`)
@@ -19,7 +19,7 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-// browse(cb);
+browse(cb);
 
 const mapsWithAssociatedPoints = (id, cb) => {
   db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [id])
@@ -27,7 +27,7 @@ const mapsWithAssociatedPoints = (id, cb) => {
     console.log(data.rows[0])
   })
 }
-mapsWithAssociatedPoints();
+// mapsWithAssociatedPoints();
 
 
 

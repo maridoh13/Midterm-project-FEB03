@@ -66,6 +66,7 @@ app.get("/static", (req, res) => {
   res.render("maps-static.ejs");
 });
 
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

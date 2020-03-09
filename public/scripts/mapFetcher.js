@@ -1,51 +1,45 @@
 // Map function
 
 function initMap() {
-  const point1 = {
-    name: "Gyu",
-    lat: 49.280058,
-    long: -123.1252331,
-    content: "Best Japanese BBQ",
-    infoWin: "infoG"
-  };
 
-  const point2 = {
-    name: "SushiDen",
-    lat: 49.2794237,
-    long: -123.1078451,
-    content: "Cheapest Sushi!",
-    infoWin: "infoS"
-  }
+  fetch("/api/points").then((response) => {
+    response.json().then((text) => {
+      return text.users;
+    })
+    .then((data) => {
+      let places = [];
 
-  let places = [point1, point2];
+      for (let i = 0; i < data.length; i++) {
+        places.push({
+          name: data[i].name,
+          lat: parseFloat(data[i].lat),
+          lng: parseFloat(data[i].lng),
+          content: data[i].name
+        });
+      }
 
+      // The map
+      let vancity = { lat: 49.2945789, lng: -123.1182459 };
+      let map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 12, center: vancity }
+        );
 
-  // The map
-  var vancity = { lat: 49.2945789, lng: -123.1182459 };
-  var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 12, center: vancity }
-  );
+      for (let i = 0; i < places.length; i++) {
+        let nameMarker = new google.maps.Marker({
+          position: { lat: places[i].lat, lng: places[i].lng },
+          map: map,
+          animation: google.maps.Animation.DROP
+        });
 
-  for (let i = 0; i < places.length; i++) {
-    let nameMarker = places[i].name;  // needs dynamic variables
-    let infoWin = places[i].infoWin;
+        let infoWin = new google.maps.InfoWindow({
+          content: places[i].content
+        });
 
-    nameMarker = new google.maps.Marker({
-      position: { lat: places[i].lat, lng: places[i].long },
-      map: map,
-      animation: google.maps.Animation.DROP
+        nameMarker.addListener('click', function () {
+          infoWin.open(map, nameMarker);
+        });
+
+      }
     });
-
-    infoWin = new google.maps.InfoWindow({
-      content: places[i].content
-    });
-
-    nameMarker.addListener('click', function () {
-      infoWin.open(map, nameMarker);
-    });
-
-  }
-
-};
-
-
+  });
+}

@@ -66,6 +66,9 @@ app.get("/static", (req, res) => {
   res.render("maps-static.ejs");
 });
 
+app.get("/search", (req, res) => {
+  res.render("search-bar.ejs");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

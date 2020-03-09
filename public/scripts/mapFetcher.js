@@ -1,7 +1,7 @@
 // Map function
 
 function initMap() {
-
+  console.log("init map TEST")
   fetch("/api/points").then((response) => {
     response.json().then((text) => {
       return text.users;
@@ -43,3 +43,9 @@ function initMap() {
     });
   });
 }
+
+
+function goGoFunction() {
+  initMap();
+  initAutocomplete();
+};

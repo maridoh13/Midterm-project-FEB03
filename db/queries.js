@@ -7,16 +7,20 @@ const db = new Pool({
   database: 'midterm'
 });
 
-
+const cb = function(x, data) {
+  console.log(data);
+}
 
 const browse = (cb) => {
   db.query('SELECT * FROM points;')
     .then(data => {
-      cb(null, data.rows);
+      cb(null, data.rows)
     })
     .catch(err => cb(err));
 };
 
+browse(cb);
+//
 
 // NOT FINISHED
 

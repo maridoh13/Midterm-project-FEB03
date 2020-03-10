@@ -20,12 +20,12 @@
     </header>
     <h1>Create maps page</h1>
     <div class="container map">
-      <h3>My Google Maps Demo</h3>
       <div id="map"></div>
     </div>
     <div class="container padding display-flex">
-      <button type="type" class="btn btn-outline-secondary btn-lg">Edit</button>
-    </div>
+      <!-- <button type="type" class="btn btn-outline-secondary btn-lg">Edit</button> -->
+    <p>Add new places:</p>
+
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
@@ -42,18 +42,39 @@
       <input class="controls" type="text" placeholder="description">
     </div>
 
-    <button type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
+    <form class="form-inline" action="/api/points" method="POST">
+      <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
+    </form>
 
+    </div>
 
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Map -->
+    <script src="/scripts/client.js"></script>
     <script src="/scripts/searchBar.js"></script>
     <!-- <script src="/scripts/mapFetcher.js"> </script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&libraries=places&callback=initAutocomplete"></script>
+
+    <!-- <script>
+    let coords = {lat: 49.27675, lng: -123.11199}
+
+    const options = {method: 'POST', body: JSON.stringify(coords), header: {'Content-Type': 'application/json'}}
+
+    fetch('/api/points', options);
+
+    </script> -->
 
 
 

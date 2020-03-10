@@ -20,7 +20,7 @@ db.connect();
 // 'dev' = Concise output colorsed by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-
+app.use(express.json({limit: '1mb'}));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -80,6 +80,12 @@ app.get("/static", (req, res) => {
 
 app.get("/search", (req, res) => {
   res.render("search-bar.ejs");
+});
+
+
+app.post("/api/points", (req, res) => {
+  console.log(req.body)
+  // res.redirect("/api/points");
 });
 
 app.listen(PORT, () => {

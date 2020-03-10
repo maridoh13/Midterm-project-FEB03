@@ -7,9 +7,9 @@ const db = new Pool({
   database: 'midterm'
 });
 
-const cb = function(x, data) {
-  console.log(data);
-}
+// const cb = function(x, data) {
+//   console.log(data);
+// }
 
 const browse = (cb) => {
   db.query(`SELECT * FROM points;`)

@@ -46,7 +46,7 @@ const parksRoutes = require("./routes/parks");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/points", pointsRoutes(db));
-app.use("/api/parks", parksRoutes(db));
+app.use("/parks", parksRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -64,9 +64,9 @@ app.get("/", (req, res) => {
 // });
 
 //Restaurants
-app.get('/map/restaurants', (req, res) => {
-  res.render('restaurants');
-})
+// app.get('/map/restaurants', (req, res) => {
+//   res.render('restaurants');
+// })
 
 // Create map page
 app.get("/createmaps", (req, res) => {

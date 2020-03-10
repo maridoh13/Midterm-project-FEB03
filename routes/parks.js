@@ -6,12 +6,11 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     console.log('hey')
-    db.query(`SELECT * FROM points WHERE type LIKE 'park';`)
+    db.query(`SELECT * FROM points WHERE type='park';`)
+    // db.query(`SELECT * FROM points WHERE type=$1;`, [parksName])
       .then(data => {
-        console.log(data)
-        const users = data.rows;
-        // res.json({ users });
-        res.render('parks', );
+        const parkNames = data.rows;
+        res.render('parks', { parkNames });
       })
       .catch(err => {
         res.status(500)

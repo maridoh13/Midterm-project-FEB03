@@ -13,15 +13,20 @@
   <title>Document</title>
 </head>
 <body>
+  <header>
+    <%- include partials/_header.ejs %>
+  </header>
   <div class="container map">
     <h3>My Google Maps Demo</h3>
     <div id="map"></div>
   </div>
-  <h2>Parks</h2>
   <div class="container">
-    <td>
-      <li>Point</li>
-    </td>
+    <h2>Parks</h2>
+    <ul>
+      <% parkNames.forEach(park => { %>
+      <p><%= park.name %></p>
+      <% }) %>
+    </ul>
   </div>
 
 <!-- Bootstrap JS -->

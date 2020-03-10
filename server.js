@@ -21,7 +21,7 @@ db.connect();
 // 'dev' = Concise output colorsed by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-
+app.use(express.json({limit: '1mb'}));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -45,12 +45,15 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
+const parksRoutes = require("./routes/parks");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/points", pointsRoutes(db));
+app.use("/parks", parksRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -61,11 +64,20 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//Parks
+// app.get('/map/parks', (req, res) => {
+//   res.render('parks');
+// });
+
+//Restaurants
+// app.get('/map/restaurants', (req, res) => {
+//   res.render('restaurants');
+// })
+
 // Create map page
 app.get("/createmaps", (req, res) => {
   res.render("create-maps.ejs");
 });
-
 
 // Google map with markers
 app.get("/static", (req, res) => {
@@ -74,6 +86,12 @@ app.get("/static", (req, res) => {
 
 app.get("/search", (req, res) => {
   res.render("search-bar.ejs");
+});
+
+
+app.post("/api/points", (req, res) => {
+  console.log(req.body)
+  // res.redirect("/api/points");
 });
 
 app.listen(PORT, () => {

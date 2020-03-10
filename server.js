@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -28,6 +29,11 @@ app.use("/styles", sass({
   dest: __dirname + "/public/styles",
   debug: true,
   outputStyle: 'expanded'
+}));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
 }));
 
 app.use(express.static("public"));
@@ -81,5 +87,5 @@ app.get("/login", (req, res) => {
 
 
 app.post("/login", (req, res) => {
-  res.redirect("index.ejs");
+  res.redirect("/createmaps");
 });

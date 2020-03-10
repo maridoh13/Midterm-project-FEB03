@@ -16,9 +16,34 @@
     <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
-     <script src="/scripts/mapFetcher.js"> </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=initMap"
-    async defer></script>
+    <div class="container padding display-flex">
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <button type="type" class="btn btn-outline-secondary btn-lg">Edit</button>
+    <div id="pointName">
+      <input class="controls" type="text" placeholder="name">
+    </div>
+    <div id="lat">
+      <input class="controls" placeholder="latitude" readonly>
+    </div>
+    <div id="lng">
+      <input class="controls" placeholder="longitude" readonly>
+    </div>
+    <div id="pointDesc">
+      <input class="controls" type="text" placeholder="description">
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
+
+
+    </div>
+    <script src="/scripts/searchBar.js"> </script>
+    <script src="/scripts/mapFetcher.js"> </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=goGoFunction&libraries=places"></script>
+
+
+
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=initMap"     async defer></script> -->
 
 
   </body>

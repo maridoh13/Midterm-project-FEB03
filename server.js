@@ -39,12 +39,15 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
+const parksRoutes = require("./routes/parks");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/points", pointsRoutes(db));
+app.use("/api/parks", parksRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -55,11 +58,20 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//Parks
+// app.get('/map/parks', (req, res) => {
+//   res.render('parks');
+// });
+
+//Restaurants
+app.get('/map/restaurants', (req, res) => {
+  res.render('restaurants');
+})
+
 // Create map page
 app.get("/createmaps", (req, res) => {
   res.render("create-maps.ejs");
 });
-
 
 // Google map with markers
 app.get("/static", (req, res) => {

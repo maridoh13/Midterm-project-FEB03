@@ -19,7 +19,6 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-// browse(cb);
 
 const mapsWithAssociatedPoints = (mapId) => {
   return db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [mapId])
@@ -30,7 +29,7 @@ const mapsWithAssociatedPoints = (mapId) => {
     console.log('Error: ', err);
   })
 }
-// mapsWithAssociatedPoints(2);
+exports.mapsWithAssociatedPoints = mapsWithAssociatedPoints;
 
 const addMyPoints = (point) => {
   return db.query(`INSERT INTO points (user_id, map_id, name, address, lat, lng, type)

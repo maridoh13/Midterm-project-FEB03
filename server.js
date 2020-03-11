@@ -66,7 +66,6 @@ app.use("/map", mapRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  console.log('REQ.BODY', req.body, req.params)
     res.render("index", { user: null });
 });
 

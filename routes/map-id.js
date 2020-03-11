@@ -18,9 +18,9 @@ module.exports = (db) => {
     }
 
     getMapNameById(req.params.id)
-    .then(data => {
-      mapName = data.name;
-    })
+      .then(data => {
+        mapName = data.name;
+      })
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {

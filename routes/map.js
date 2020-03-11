@@ -7,7 +7,7 @@ const { getMapByType, getUserById } = require('../db/queries');
 
 module.exports = (db) => {
 
-  router.get("/", (req, res) => {
+  router.get("/:id", (req, res) => {
     if(req.session.userId){
       user = req.session.userId;
       getUserById(user)
@@ -19,7 +19,7 @@ module.exports = (db) => {
       res.render('create-maps', {user: null});
     }
 
-    });
+  });
   return router;
 };
 

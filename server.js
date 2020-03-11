@@ -48,7 +48,7 @@ const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
 const restoRoutes = require("./routes/restaurants");
-const createmapsRoutes = require("./routes/createmaps");
+const mapRoutes = require("./routes/map");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -58,7 +58,7 @@ app.use("/api/points", pointsRoutes(db));
 app.use("/parks", parksRoutes(db));
 app.use("/restaurants", restoRoutes(db));
 app.use("/login", loginRoutes(db));
-app.use("/createmaps", createmapsRoutes(db));
+app.use("/map", mapRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -88,11 +88,6 @@ app.post('/logout', (req, res) => {
   req.session = null;
   res.redirect('/login');
 });
-
-
-
-
-
 
 
 app.listen(PORT, () => {

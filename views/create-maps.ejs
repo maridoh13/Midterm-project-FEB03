@@ -56,8 +56,8 @@
       <% if (user === null) { %>
         <p>Please Login to create your map</p>
         <% } else { %>
-          <p>Add new places:</p>
-          <form id="my-form" class="form-inline" action="/api/points" method="POST">
+          <!-- <p>Add new places:</p> -->
+          <!-- <form id="my-form" class="form-inline" action="/api/points" method="POST">
 
           <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
@@ -76,6 +76,31 @@
                 </div>
                 <br>
                 <p></p>
+
+            <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
+          </form> -->
+
+          <p>Add new places:</p>
+
+          <form id="my-form" class="form-inline" action="/api/points" method="POST">
+
+          <input name="address" id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+
+          <div id="pointName">
+            <input name="name" class="controls" type="text" placeholder="name">
+          </div>
+          <div id="lat">
+            <input name="lat" class="controls" placeholder="latitude" readonly>
+          </div>
+          <div id="lng">
+            <input name="lng" class="controls" placeholder="longitude" readonly>
+          </div>
+          <div id="pointDesc">
+            <input name="content" class="controls" type="text" placeholder="description">
+          </div>
+          <br>
+          <p></p>
 
             <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
           </form>

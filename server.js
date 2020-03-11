@@ -70,9 +70,9 @@ app.get("/", (req, res) => {
 });
 
 // Edit map page
-app.get("/map/:id", (req, res) => {
-  res.render("create-maps.ejs", {user: null});
-});
+// app.get("/map/:id", (req, res) => {
+//   res.render("create-maps.ejs", {user: null});
+// });
 
 // Google map with markers
 app.get("/static", (req, res) => {

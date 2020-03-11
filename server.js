@@ -47,11 +47,8 @@ const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
-<<<<<<< HEAD
 const restoRoutes = require("./routes/restaurants");
-=======
 const createmapsRoutes = require("./routes/createmaps");
->>>>>>> anna
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

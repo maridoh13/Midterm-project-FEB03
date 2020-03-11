@@ -5,12 +5,12 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    console.log('hey')
+
     db.query(`SELECT * FROM points WHERE type='park';`)
-    // db.query(`SELECT * FROM points WHERE type=$1;`, [parksName])
+    // db.query(`SELECT * FROM points WHERE type=$1;`, [parkNames])
       .then(data => {
         const parkNames = data.rows;
-        res.render('parks', { parkNames });
+        res.render('parks', { parkNames, user });
       })
       .catch(err => {
         res.status(500)

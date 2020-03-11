@@ -9,9 +9,6 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     if(req.session.userId){
       user = req.session.userId;
-
-
-
       getUserById(user)
         .then(data => {
           user = data;

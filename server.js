@@ -63,7 +63,7 @@ app.use("/login", loginRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index", {user: null});
+  res.render("index", {user: req.session.userId});
 });
 
 // Create map page

@@ -10,15 +10,16 @@ function initMap() {
 
       let places = [];
 
+
       for (let i = 0; i < data.length; i++) {
-        if(data[i].map_id === 3) {
+        // if(data[i].map_id === 3) {
           places.push({
             name: data[i].name,
             lat: parseFloat(data[i].lat),
             lng: parseFloat(data[i].lng),
             content: data[i].name
           });
-        }
+        // }
       }
 
 

@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
 
+
 const db = new Pool({
   user: 'labber',
   password: 'labber',
@@ -30,9 +31,9 @@ const getPointsByUserId = (userId) => {
 
 
 const addMyPoints = (point) => {
-  return db.query(`INSERT INTO points (user_id, map_id, name, address, lat, lng, type)
+  return db.query(`INSERT INTO points (user_id, map_id, name, address, lat, lng, description)
                   VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *; `,
-            [point.user_id, point.map.id, point.name, point.address, point.lat, point.lng, point.type])
+            [point.user_id, point.map_id, point.name, point.address, point.lat, point.lng, point.description])
   .then(res => {
     return res.rows;
   })

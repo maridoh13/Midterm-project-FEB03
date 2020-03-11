@@ -80,11 +80,7 @@ app.get("/search", (req, res) => {
 });
 
 
-app.post("/api/points", (req, res) => {
-  console.log("req body", req.body);
-  // res.status(200).send('OKAY!!')
-  addMyPoints(req.body);
-});
+
 
 app.post('/logout', (req, res) => {
   req.session = null;

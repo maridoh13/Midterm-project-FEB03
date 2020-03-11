@@ -1,7 +1,10 @@
 const express = require('express');
 const router  = express.Router();
 const {checkUser} = require('../public/scripts/helpers');
+<<<<<<< HEAD
 const {getMapByType} = require('../db/queries');
+=======
+>>>>>>> 2a517e64d406a63c8692f00c2baed66b678505b8
 
 
 

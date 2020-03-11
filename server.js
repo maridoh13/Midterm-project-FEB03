@@ -48,7 +48,7 @@ const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
 const restoRoutes = require("./routes/restaurants");
-const mapRoutes = require("./routes/map");
+const mapRoutes = require("./routes/map-id");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

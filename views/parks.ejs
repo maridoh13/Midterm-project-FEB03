@@ -17,14 +17,15 @@
     <%- include partials/_header.ejs %>
   </header>
   <div class="container map">
-    <h3>My Google Maps Demo</h3>
+    <h3>List of Maps</h3>
     <div id="map"></div>
   </div>
   <div class="container">
     <h2>Parks</h2>
     <ul>
       <% parkNames.forEach(park => { %>
-      <a href="/createmaps"><p><%= park.name %></p></a>
+      <% console.log(park.id) %>
+      <a href="/map/1"><p><%= park.name %></p></a>
       <% }) %>
     </ul>
   </div>

@@ -17,7 +17,9 @@ module.exports = (db) => {
   });
 
   router.get("/map/:id", (req, res) => {
-    mapsWithAssociatedPoints(req.params.id)
+    console.log('inside get map id');
+    mapsWithAssociatedPoints(3)
+    //req.params.id
     .then(map => {
       res.json(map);
     })
@@ -28,17 +30,17 @@ module.exports = (db) => {
     });
   });
 
-  router.get("/user/:id", (req, res) => {
-    getPointsByUserId(req.params.id)
-    .then(points => {
-      res.json(points);
-    })
-    .catch(err => {
-      res.
-      status(500)
-      .json({ error: err.message });
-    });
-  })
+  // router.get("/user/:id", (req, res) => {
+  //   getPointsByUserId(req.params.id)
+  //   .then(points => {
+  //     res.json(points);
+  //   })
+  //   .catch(err => {
+  //     res.
+  //     status(500)
+  //     .json({ error: err.message });
+  //   });
+  // })
 
   router.post("/", (req, res) => {
     console.log("req body", req.body);
@@ -64,7 +66,7 @@ module.exports = (db) => {
     // 7 keyvalue pairs
     addMyPoints(object)
       .then(data => {
-        res.redirect('/')
+        res.redirect('/map/:id')
       })
       .catch(err => {
         res.

@@ -7,21 +7,29 @@ function initMap() {
       return text.users;
     })
     .then((data) => {
+
       let places = [];
 
       for (let i = 0; i < data.length; i++) {
-        places.push({
-          name: data[i].name,
-          lat: parseFloat(data[i].lat),
-          lng: parseFloat(data[i].lng),
-          content: data[i].name
-        });
+        console.log(url)
+        console.log(data[i].map_id);
+        if(data[i].map_id === 3) {
+          places.push({
+            name: data[i].name,
+            lat: parseFloat(data[i].lat),
+            lng: parseFloat(data[i].lng),
+            content: data[i].name
+          });
+        }
+        console.log(places);
+
       }
 
+
       // The map
-      let vancity = { lat: 49.2945789, lng: -123.1182459 };
+      let centerPoint = { lat: 49.2945789, lng: -123.1182459 };
       let map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 12, center: vancity }
+        document.getElementById('map'), { zoom: 12, center: centerPoint }
         );
 
       for (let i = 0; i < places.length; i++) {

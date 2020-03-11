@@ -47,6 +47,7 @@ const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
+const restoRoutes = require("./routes/restaurants");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -54,6 +55,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/points", pointsRoutes(db));
 app.use("/parks", parksRoutes(db));
+app.use("/restaurants", restoRoutes(db));
 app.use("/login", loginRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
@@ -65,8 +67,8 @@ app.get("/", (req, res) => {
   res.render("index", {user: null});
 });
 
-// Create map page
-app.get("/createmaps", (req, res) => {
+// Edit map page
+app.get("/map/:id", (req, res) => {
   res.render("create-maps.ejs", {user: null});
 });
 
@@ -80,12 +82,16 @@ app.get("/search", (req, res) => {
 });
 
 
-
-
 app.post('/logout', (req, res) => {
   req.session = null;
   res.redirect('/login');
 });
+
+
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -1,18 +1,21 @@
-$(() => {
-  $("#submitForm").click(() => {
-    console.log('in ajax');
-    console.log(req.body);
+$( document ).ready(function() {
+  console.log("before click")
+  $("#submitForm").on("click",() => {
+    let $form = $('#my-form');
+    event.preventDefault();
+    const formData = $form.serialize();
+    console.log("Formdata submitted", formData);
+
+
     $.ajax({
-      url: '/api/points',
-      method: 'POST',
-      data: JSON.stringify(params),
-      dataType: "json",
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader("Content-Type", "application/json");
-      }
+        url: '/api/points',
+        method: 'POST',
+        data: formData,
+        success: function(formData) {
+          console.log('success');
+        }
     })
-
-
   })
 
-})
+
+});

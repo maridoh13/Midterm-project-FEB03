@@ -12,7 +12,7 @@ const db = new Pool({
 const mapsWithAssociatedPoints = (mapId) => {
   return db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [mapId])
   .then(data => {
-    return data.rows[0];
+    return data.rows;
   })
   .catch(err => {
     console.log('Error: ', err);

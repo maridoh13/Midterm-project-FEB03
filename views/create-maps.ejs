@@ -106,6 +106,14 @@
           </form>
         <% } %>
 
+        <h3>List of <%= map[0].type %>s</h3>
+        <ul>
+          <% map.forEach(point => { %>
+          <p><%= point.name %></p>
+          <% }) %>
+        </ul>
+
+
 
     <!-- <script>
       const myForm = document.getElementById("my-form");

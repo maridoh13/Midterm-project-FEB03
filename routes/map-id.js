@@ -1,7 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-// const {checkUser} = require('../public/scripts/helpers');
-const { getUserById } = require('../db/queries');
+const { getUserById, mapsWithAssociatedPoints } = require('../db/queries');
 
 
 
@@ -13,11 +12,20 @@ module.exports = (db) => {
       getUserById(user)
         .then(data => {
           user = data;
-          res.render('create-maps', {user});
         })
     } else {
-      res.render('create-maps', {user: null});
+      user = null;
     }
+
+    mapsWithAssociatedPoints(req.params.id)
+      .then(map => {
+        res.render('create-maps', { map, user });
+      })
+      .catch(err => {
+        res.
+        status(500)
+        .json({ error: err.message });
+      });
 
   });
   return router;

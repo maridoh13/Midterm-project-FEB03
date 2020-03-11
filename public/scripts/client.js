@@ -2,7 +2,7 @@ $( document ).ready(function() {
   console.log("before click")
   $("#submitForm").on("click",() => {
     let $form = $('#my-form');
-    // event.preventDefault();
+    event.preventDefault();
     const formData = $form.serialize();
     console.log("Formdata submitted", formData);
 
@@ -15,6 +15,5 @@ $( document ).ready(function() {
         }
     })
   })
-
 
 });

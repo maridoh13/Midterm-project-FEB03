@@ -1,16 +1,18 @@
 const express = require('express');
 const router  = express.Router();
+const {checkUser} = require('../public/scripts/helpers');
+const {getMapByType} = require('../db/queries');
+
 
 
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
     const user = null;
-
-    db.query(`SELECT * FROM maps WHERE type='park';`)
-    // db.query(`SELECT * FROM points WHERE type=$1;`, [parkNames])
+    // checkUser(req, res);
+    getMapByType('park')
       .then(data => {
-        const parkNames = data.rows;
+        const parkNames = data;
         res.render('parks', { parkNames, user });
       })
       .catch(err => {

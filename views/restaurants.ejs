@@ -24,7 +24,7 @@
     <h2>Restaurants</h2>
     <ul>
       <% restoNames.forEach(resto => { %>
-      <a href="/map/3"><p><%= resto.name %></p></a>
+      <a href="/map/<%= resto.id %>"><p><%= resto.name %></p></a>
       <% }) %>
     </ul>
   </div>

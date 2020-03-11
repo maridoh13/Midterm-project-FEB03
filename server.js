@@ -69,20 +69,6 @@ app.get("/", (req, res) => {
     res.render("index", { user: null });
 });
 
-// Edit map page
-// app.get("/map/:id", (req, res) => {
-//   res.render("create-maps.ejs", {user: null});
-// });
-
-// Google map with markers
-app.get("/static", (req, res) => {
-  res.render("maps-static.ejs");
-});
-
-app.get("/search", (req, res) => {
-  res.render("search-bar.ejs");
-});
-
 
 app.post('/logout', (req, res) => {
   req.session = null;

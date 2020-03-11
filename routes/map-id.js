@@ -15,7 +15,7 @@ module.exports = (db) => {
       getUserById(user)
         .then(data => {
           user = data;
-          res.render('create-maps', {user, });
+          res.render('create-maps', {user});
         })
     } else {
       user = null;
@@ -23,6 +23,8 @@ module.exports = (db) => {
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {
+        console.log('map', map.name);
+        console.log('user', user);
         res.render('create-maps', { map, user });
       })
       .catch(err => {

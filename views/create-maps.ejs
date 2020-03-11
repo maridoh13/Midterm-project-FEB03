@@ -22,64 +22,16 @@
       <%- include partials/_header.ejs %>
     </header>
     <h1>Edit your map here</h1>
-    <h2>Map ID - name</h2>
+    <h2>Map ID - <%= map.name %></h2>
     <div class="container map">
       <div id="map"></div>
     </div>
     <div class="container padding display-flex">
-      <!-- <button type="type" class="btn btn-outline-secondary btn-lg">Edit</button> -->
-    <!-- <p>Add new places:</p>
 
-    <form id="my-form" class="form-inline" action="/api/points" method="POST">
-
-    <input name="address" id="pac-input" class="controls" type="text" placeholder="Search Box">
-
-
-    <div id="pointName">
-      <input name="name" class="controls" type="text" placeholder="name">
-    </div>
-    <div id="lat">
-      <input name="lat" class="controls" placeholder="latitude" readonly>
-    </div>
-    <div id="lng">
-      <input name="lng" class="controls" placeholder="longitude" readonly>
-    </div>
-    <div id="pointDesc">
-      <input name="content" class="controls" type="text" placeholder="description">
-    </div>
-    <br>
-    <p></p>
-
-      <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
-    </form> -->
       <!-- Add new point/map from -->
       <% if (user === null) { %>
-        <p>Please Login to create your map</p>
+        <p>Please login to edit the map!</p>
         <% } else { %>
-          <!-- <p>Add new places:</p> -->
-          <!-- <form id="my-form" class="form-inline" action="/api/points" method="POST">
-
-          <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-
-
-                <div id="pointName">
-                  <input name="name" class="controls" type="text" placeholder="name">
-                </div>
-                <div id="lat">
-                  <input name="lat" class="controls" placeholder="latitude" readonly>
-                </div>
-                <div id="lng">
-                  <input name="lng" class="controls" placeholder="longitude" readonly>
-                </div>
-                <div id="pointDesc">
-                  <input name="content" class="controls" type="text" placeholder="description">
-                </div>
-                <br>
-                <p></p>
-
-            <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
-          </form> -->
-
           <p>Add new places:</p>
 
           <form id="my-form" class="form-inline" action="/api/points" method="POST">
@@ -115,23 +67,8 @@
 
 
 
-    <!-- <script>
-      const myForm = document.getElementById("my-form");
-
-      myForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        console.log("FORM SUBMITTED!");
-      })
-
-    </script> -->
-
     </div>
 
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
     </br>
     </br>
     </br>

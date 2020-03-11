@@ -52,4 +52,4 @@ const getUserByEmail = (email) => {
 }
 
 
-module.exports = { mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId };
+module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId };

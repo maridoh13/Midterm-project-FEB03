@@ -58,7 +58,6 @@ app.use("/login", loginRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
-
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -82,9 +81,9 @@ app.get("/search", (req, res) => {
 
 
 app.post("/api/points", (req, res) => {
-  console.log("TESTING HERE!!!!",req.body);
+  console.log("req body", req.body);
   // res.status(200).send('OKAY!!')
-  res.JSON()
+  addMyPoints(req.body);
 });
 
 app.post('/logout', (req, res) => {

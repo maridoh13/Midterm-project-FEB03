@@ -5,6 +5,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    const user = null;
 
     db.query(`SELECT * FROM points WHERE type='park';`)
     // db.query(`SELECT * FROM points WHERE type=$1;`, [parkNames])

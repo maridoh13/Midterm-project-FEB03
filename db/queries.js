@@ -8,11 +8,20 @@ const db = new Pool({
   database: 'midterm'
 });
 
+const getMapNameById = (mapId) => {
+  return db.query(`SELECT * FROM maps WHERE id=$1`, [mapId])
+  .then(data => {
+    return data.rows[0];
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
 const mapsWithAssociatedPoints = (mapId) => {
   return db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [mapId])
   .then(data => {
-    return data.rows[0];
+    return data.rows;
   })
   .catch(err => {
     console.log('Error: ', err);
@@ -74,4 +83,4 @@ const getMapByType = (type) => {
 
 
 
-module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById };
+module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };

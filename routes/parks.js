@@ -8,6 +8,7 @@ const { getMapByType, getUserById } = require('../db/queries');
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    // console.log('REQ.DOBY', req.params)
     if(req.session.userId){
       user = req.session.userId;
       getUserById(user)

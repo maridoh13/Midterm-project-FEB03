@@ -25,7 +25,7 @@
     <ul>
       <% parkNames.forEach(park => { %>
       <% console.log(park.id) %>
-      <a href="/map/1"><p><%= park.name %></p></a>
+      <a href="/map/<%= park.id %>"><p><%= park.name %></p></a>
       <% }) %>
     </ul>
   </div>

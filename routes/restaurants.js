@@ -11,12 +11,13 @@ module.exports = (db) => {
     if(req.session.userId){
       user = req.session.userId;
       getUserById(user)
-      .then(data => {
-        user = data;
-      })
+        .then(data => {
+          user = data;
+        })
     } else {
       user = null;
     }
+
     getMapByType('restaurant')
       .then(data => {
         const restoNames = data;

@@ -48,7 +48,7 @@ const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
 const restoRoutes = require("./routes/restaurants");
-const mapRoutes = require("./routes/map");
+const mapRoutes = require("./routes/map-id");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -66,21 +66,8 @@ app.use("/map", mapRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  console.log('REQ.BODY', req.body, req.params)
     res.render("index", { user: null });
-});
-
-// Edit map page
-// app.get("/map/:id", (req, res) => {
-//   res.render("create-maps.ejs", {user: null});
-// });
-
-// Google map with markers
-app.get("/static", (req, res) => {
-  res.render("maps-static.ejs");
-});
-
-app.get("/search", (req, res) => {
-  res.render("search-bar.ejs");
 });
 
 

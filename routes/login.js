@@ -16,9 +16,9 @@ module.exports = (db) => {
       .then(user => {
         if (req.body.email === user.email){
           req.session.userId = user.id;
-          res.render('create-maps', {user});
+          res.render('index', {user});
         } else {
-          res.redirect('/login')
+          res.redirect('/login');
         }
       })
       .catch(err => {

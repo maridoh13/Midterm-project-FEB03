@@ -47,7 +47,11 @@ const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
+<<<<<<< HEAD
 const restoRoutes = require("./routes/restaurants");
+=======
+const createmapsRoutes = require("./routes/createmaps");
+>>>>>>> anna
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,6 +61,7 @@ app.use("/api/points", pointsRoutes(db));
 app.use("/parks", parksRoutes(db));
 app.use("/restaurants", restoRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/createmaps", createmapsRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -64,7 +69,7 @@ app.use("/login", loginRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index", {user: null});
+    res.render("index", { user: null });
 });
 
 // Edit map page

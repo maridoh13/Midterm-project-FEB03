@@ -1,6 +1,8 @@
 const checkUser = (req, res) => {
-  if (!req.session.user_id) {
-    res.redirect('/login');
+  if (!req.session.userId) {
+  //   res.render('create-maps', { user });
+  // } else {
+    user = null;
   }
 };
 

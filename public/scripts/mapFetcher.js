@@ -11,8 +11,6 @@ function initMap() {
       let places = [];
 
       for (let i = 0; i < data.length; i++) {
-        console.log(url)
-        console.log(data[i].map_id);
         if(data[i].map_id === 3) {
           places.push({
             name: data[i].name,
@@ -21,8 +19,6 @@ function initMap() {
             content: data[i].name
           });
         }
-        console.log(places);
-
       }
 
 

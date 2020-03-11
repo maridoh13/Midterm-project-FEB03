@@ -10,7 +10,7 @@ const db = new Pool({
 
 
 const mapsWithAssociatedPoints = (mapId) => {
-  return db.query(`SELECT * FROM maps JOIN points ON maps.id=map_id WHERE maps.id=$1`, [mapId])
+  return db.query(`SELECT * FROM points WHERE map_id = $1;`, [mapId])
   .then(data => {
     return data.rows[0];
   })
@@ -63,6 +63,19 @@ const getMapByType = (type) => {
   })
 }
 
+const deletePoint = (id) => {
+  return db.query(`DELETE FROM points WHERE id = $1;`, [id])
+  .then(data => {
+    console.log(data.rows)
+    return data.rows;
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
 
-module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType };
+
+
+
+module.exports = { deletePoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType };

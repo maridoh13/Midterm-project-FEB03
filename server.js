@@ -66,19 +66,9 @@ app.get("/", (req, res) => {
   res.render("index", {user: null});
 });
 
-//Parks
-// app.get('/map/parks', (req, res) => {
-//   res.render('parks');
-// });
-
-//Restaurants
-// app.get('/map/restaurants', (req, res) => {
-//   res.render('restaurants');
-// })
-
 // Create map page
 app.get("/createmaps", (req, res) => {
-  res.render("create-maps.ejs");
+  res.render("create-maps.ejs", {user: null});
 });
 
 // Google map with markers

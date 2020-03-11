@@ -1,15 +1,22 @@
 const express = require('express');
 const router  = express.Router();
-const {checkUser} = require('../public/scripts/helpers');
-const {getMapByType} = require('../db/queries');
+// const {checkUser} = require('../public/scripts/helpers');
+const { getUserById, getMapByType } = require('../db/queries');
 
 
 
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    const user = null;
-    // checkUser(req, res);
+    if(req.session.userId){
+      user = req.session.userId;
+      getUserById(user)
+      .then(data => {
+        user = data;
+      })
+    } else {
+      user = null;
+    }
     getMapByType('restaurant')
       .then(data => {
         const restoNames = data;

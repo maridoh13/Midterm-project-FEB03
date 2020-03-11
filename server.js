@@ -91,7 +91,8 @@ app.get("/search", (req, res) => {
 
 app.post("/api/points", (req, res) => {
   console.log("TESTING HERE!!!!",req.body);
-  res.status(200).send('OKAY!!')
+  // res.status(200).send('OKAY!!')
+  res.JSON()
 });
 
 app.listen(PORT, () => {

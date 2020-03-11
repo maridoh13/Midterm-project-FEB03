@@ -47,6 +47,7 @@ const widgetsRoutes = require("./routes/widgets");
 const pointsRoutes = require("./routes/points");
 const parksRoutes = require("./routes/parks");
 const loginRoutes = require("./routes/login");
+const createmapsRoutes = require("./routes/createmaps");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +56,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/points", pointsRoutes(db));
 app.use("/parks", parksRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/createmaps", createmapsRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -62,13 +64,17 @@ app.use("/login", loginRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index", {user: req.session.userId});
+  // if (!req.session.userId) {
+  //   user = null;
+  // } else {
+    res.render("index", { user: null });
+  // }
 });
 
 // Create map page
-app.get("/createmaps", (req, res) => {
-  res.render("create-maps.ejs", {user: null});
-});
+// app.get("/createmaps", (req, res) => {
+//   res.render("create-maps.ejs", {user: null});
+// });
 
 // Google map with markers
 app.get("/static", (req, res) => {

@@ -18,7 +18,7 @@ module.exports = (db) => {
           req.session.userId = user.id;
           res.render('index', {user});
         } else {
-          res.redirect('/login')
+          res.redirect('/login');
         }
       })
       .catch(err => {

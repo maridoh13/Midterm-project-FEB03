@@ -1,30 +1,32 @@
 const express = require('express');
 const router  = express.Router();
-const {checkUser} = require('../public/scripts/helpers');
-const {getMapByType} = require('../db/queries');
+const { checkUser } = require('../public/scripts/helpers');
+const { getMapByType, getUserById } = require('../db/queries');
 
 
 
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    // const user = req.session;
-    // console.log(req.session)
-    if (!req.session.userId) {
-      user = null;
+    if(req.session.userId){
+      user = req.session.userId;
+      getUserById(user)
+      .then(data => {
+        user = data;
+      })
     } else {
-      getMapByType('park')
-        .then(data => {
-          const parkNames = data;
-          // req.session.userId = user.id;
-          console.log('USER', user)
-          res.render('parks', { parkNames, user });
-        })
-        .catch(err => {
-          res.status(500)
-          .json({ error: err.message });
-        });
+      user = null;
     }
+
+      getMapByType('park')
+      .then(data => {
+        const parkNames = data;
+        res.render('parks', { parkNames, user });
+      })
+      .catch(err => {
+        res.status(500)
+        .json({ error: err.message });
+      });
   });
   return router;
 };

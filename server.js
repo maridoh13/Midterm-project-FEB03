@@ -64,11 +64,7 @@ app.use("/createmaps", createmapsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  // if (!req.session.userId) {
-  //   user = null;
-  // } else {
     res.render("index", { user: null });
-  // }
 });
 
 // Create map page

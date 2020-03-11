@@ -17,8 +17,9 @@
           <% if (user === null) { %>
             <a href="/login"><button type="type" class="btn login btn-outline-secondary btn-md" href="/login">Login</button></a>
           <% } else { %>
-            <form class="form-inline" style="display:inline-flex" method="POST" action="/logout">
-              <span>Logged in as: <%= user.email %>!</span>
+            <form class="form-inline logout" method="POST" action="/logout">
+              <span>Logged in as: <%= user.email %>! </span>
+              <!-- as: <%= user.email %>! -->
               <button type="submit" class="btn btn-outline-secondary">Logout</button>
             </form>
           <% } %>

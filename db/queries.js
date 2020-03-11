@@ -52,6 +52,16 @@ const getUserByEmail = (email) => {
   })
 }
 
+const getUserById = (id) => {
+  return db.query(`SELECT * FROM users WHERE id=$1`, [id])
+  .then(data => {
+    return data.rows[0];
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
+
 const getMapByType = (type) => {
   return db.query(`SELECT * FROM maps WHERE type=$1;`, [type])
   .then(data => {
@@ -64,4 +74,4 @@ const getMapByType = (type) => {
 
 
 
-module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType };
+module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById };

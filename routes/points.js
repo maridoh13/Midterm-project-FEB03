@@ -47,7 +47,7 @@ module.exports = (db) => {
     // res.status(200).send('OKAY!!')
 
     const userId = 4;
-    const mapId = 1;
+    const mapId = 3;
     const address = req.body.address;
     const name = req.body.name;
     const lat = req.body.lat;
@@ -66,7 +66,7 @@ module.exports = (db) => {
     // 7 keyvalue pairs
     addMyPoints(object)
       .then(data => {
-        res.redirect('/map/:id')
+        res.redirect(`/map/${mapId}`)
       })
       .catch(err => {
         res.

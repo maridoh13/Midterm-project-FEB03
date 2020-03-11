@@ -8,7 +8,6 @@ CREATE TABLE points (
   address VARCHAR(255) NOT NULL,
   lat DECIMAL(10,6) NOT NULL,
   lng DECIMAL(10,6) NOT NULL,
-  type VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL
 );
 

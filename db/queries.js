@@ -62,6 +62,7 @@ const getUserByEmail = (email) => {
 }
 
 const getUserById = (id) => {
+  // if(!id) {return Promise.resolve(null)} improvement for later
   return db.query(`SELECT * FROM users WHERE id=$1`, [id])
   .then(data => {
     return data.rows[0];

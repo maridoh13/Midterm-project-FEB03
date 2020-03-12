@@ -16,12 +16,13 @@ module.exports = (db) => {
       .then(user => {
         if (req.body.email === user.email){
           req.session.userId = user.id;
-          res.render('index', {user});
+          res.redirect('/');
         } else {
-          res.redirect('/login');
+          res.render('/login');
         }
       })
       .catch(err => {
+        console.log("error", err)
         res.status(500)
         .json({ error: err.message });
       });

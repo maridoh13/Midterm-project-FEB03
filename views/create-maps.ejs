@@ -57,17 +57,20 @@
 
             <button id="submitForm" type="submit" class="btn btn-outline-secondary btn-lg">Submit</button>
           </form>
+
+        <!-- List of points with delete button -->
+          <h3>List of <%= map[0].type %>s</h3>
+          <ul>
+            <% map.forEach(point => { %>
+            <div id="<%= point.id %>" class="point">
+              <%= point.name %>
+              <div class="delete-form">❌</div>
+            </div>
+            <% }) %>
+          </ul>
+
         <% } %>
 
-        <h3>List of <%= map[0].type %>s</h3>
-        <ul>
-          <% map.forEach(point => { %>
-          <div id="<%= point.id %>" class="point">
-            <%= point.name %>
-            <div class="delete-form">❌</div>
-          </div>
-          <% }) %>
-        </ul>
 
 
 

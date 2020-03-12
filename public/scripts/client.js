@@ -7,13 +7,13 @@ $( document ).ready(function() {
     console.log("Formdata submitted", formData);
 
     $.ajax({
-        url: '/api/points',
-        method: 'POST',
-        data: formData,
-        success: function(formData) {
-          console.log('success');
-          window.location.reload();
-        }
+      url: '/api/points',
+      method: 'POST',
+      data: formData,
+      success: function(formData) {
+        console.log('success');
+        window.location.reload();
+      }
     })
   })
 
@@ -26,6 +26,10 @@ $( document ).ready(function() {
         window.location.reload()
       }
     })
+  })
+
+  $(".point").on('click', () => {
+    $(".point-description").slideToggle(500);
   })
 
 

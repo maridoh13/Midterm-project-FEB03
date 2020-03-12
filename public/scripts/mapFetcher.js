@@ -1,4 +1,4 @@
-// Map function
+// Function that generates points on map
 
 function initMap() {
 
@@ -7,7 +7,6 @@ function initMap() {
       return text.users;
     })
     .then((data) => {
-
       let places = [];
 
       const param = parseInt(window.location.pathname.slice(5));

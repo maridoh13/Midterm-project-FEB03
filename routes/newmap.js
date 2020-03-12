@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserById, mapsWithAssociatedPoints, getMapNameById } = require('../db/queries');
+const { getUserById, mapsWithAssociatedPoints } = require('../db/queries');
 
 
 
@@ -16,11 +16,6 @@ module.exports = (db) => {
     } else {
       user = null;
     }
-
-    // getMapNameById(req.params.id)
-    //   .then(data => {
-    //     mapName = data.name;
-    //   })
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {

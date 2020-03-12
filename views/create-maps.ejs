@@ -32,18 +32,18 @@
       <% if (user === null) { %>
         <p>Please login to edit the map!</p>
 
-        <h3>List of <%= map[0].type %>s</h3>
-          <ul>
-            <% map.forEach(point => { %>
-            <div id="<%= point.id %>" class="point">
-              <%= point.name %>
-              <div class="container point-description">
-                <p><b>Address: </b><%= point.address %></p>
-                <p><b>Description: </b><%= point.description %></p>
-              </div>
+        <h3 class="text-center">List of <%= map[0].type %>s</h3>
+        <div class="container-fluid point-container padding">
+          <% map.forEach(point => { %>
+            <div class="col-md-12 name-details padding d-flex" id="<%= point.id %>">
+              <button class="col-md-6 point btn btn-outline-secondary"><%= point.name %></button>
+            <div class="container point-description">
+              <p><b>Address: </b><%= point.address %></p>
+              <p><b>Comment: </b><%= point.description %></p>
             </div>
-            <% }) %>
-          </ul>
+          </div>
+          <% }) %>
+        </div>
         <% } else { %>
           <p>Add new places:</p>
 
@@ -74,20 +74,20 @@
 
           </form>
 
-        <!-- List of points with delete button -->
-          <h3>List of <%= map[0].type %>s</h3>
-          <ul>
-            <% map.forEach(point => { %>
-            <div id="<%= point.id %>" class="point">
-              <%= point.name %>
-              <div class="delete-form">❌</div>
-              <div class="container point-description">
-                <p><b>Address: </b><%= point.address %></p>
-                <p><b>Description: </b><%= point.description %></p>
-              </div>
+        <!-- List of points with description and delete button -->
+        <h3 class="text-center">List of <%= map[0].type %>s</h3>
+        <div class="container-fluid point-container padding">
+          <% map.forEach(point => { %>
+            <div class="col-md-12 name-details padding" id="<%= point.id %>">
+              <button class="col-md-6 point btn btn-outline-secondary"><%= point.name %></button>
+              <div class="delete-form btn btn-outline-danger col-md-2">Delete  ❌</div>
+            <div class="container point-description">
+              <p><b>Address: </b><%= point.address %></p>
+              <p><b>Comment: </b><%= point.description %></p>
             </div>
-            <% }) %>
-          </ul>
+          </div>
+          <% }) %>
+        </div>
 
         <% } %>
 

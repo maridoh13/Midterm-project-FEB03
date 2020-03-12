@@ -24,7 +24,7 @@ module.exports = (db) => {
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {
-        res.render('create-maps', { map, user, mapName });
+        res.render('create-maps', { mapName, map, user });
       })
       .catch(err => {
         res.

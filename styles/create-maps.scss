@@ -25,7 +25,28 @@ body {
     margin-top: 20px;
    }
 
+  //  .toggle {
+  //    display: none;
+  //  }
    .point-description {
-     display: none;
+    display: none;
+    margin: 10px;
+    padding: 10px;
+
+    b {
+      color: purple;
+    }
+   }
+
+   .name-details {
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
+   }
+
+   .point {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 100px;
    }
 }

@@ -46,7 +46,8 @@ module.exports = (db) => {
     console.log("req body", req.body);
     // res.status(200).send('OKAY!!')
     // console.log(req.params)
-    console.log("conversion", typeof req.params)
+    // console.log("conversion", typeof req.params)
+    // console.log(req.params)
     // const param = parseInt(window.location.pathname.slice(5));
 
     const userId = 4;

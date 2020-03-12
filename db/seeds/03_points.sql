@@ -7,7 +7,7 @@ INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUE
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (4, 4, 'Washington Sq Park', 'Manhattan', 40.7308, -73.9973, 'weird but cool');
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (4, 4, 'Prospect Park', 'Brooklyn', 40.6601, -73.9689, 'beautiful place to hang in Brooklyn');
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (1, 5, 'The Boathouse', '1305 Arbutus St, Vancouver, BC V6J 5N2', 49.2742, -123.1536, 'nice view');
-INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (1, 5, 'Darbys', '2001 Macdonald St, Vancouver, BC V6K 3Y2', 49.2681, -123.1686, 'polenta fries!');
+INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (1, 5, 'Darbys Public House', '2001 Macdonald St, Vancouver, BC V6K 3Y2', 49.2681, -123.1686, 'polenta fries!');
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (1, 5, 'East is East', '3035 W Broadway, Vancouver, BC V6K 2G9', 49.2642, -123.1727, 'great eastern food');
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (2, 7, 'Stanley Park', 'Vancouver, BC V6G 1Z4', 49.3042, -123.1442, 'fun walk on the seawall');
 INSERT INTO points (user_id, map_id, name, address, lat, lng, description) VALUES (2, 7, 'English Bay Beach', 'West End', 49.2863, -123.1434, 'beautiful sunsets');

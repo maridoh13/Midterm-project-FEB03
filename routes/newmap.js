@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserById, mapsWithAssociatedPoints } = require('../db/queries');
+const { getUserById, getMapNameById, mapsWithAssociatedPoints } = require('../db/queries');
 
 
 
@@ -19,8 +19,8 @@ module.exports = (db) => {
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {
-        // res.render('create-maps', { mapName, map, user });
-        res.render('newmap.ejs', { map, user });
+        const mapId = req.params.id;
+        res.render('newmap.ejs', { map, user, mapId });
       })
       .catch(err => {
         res.

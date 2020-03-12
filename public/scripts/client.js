@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
   console.log("before click")
   $("#submitForm").on("click",() => {
     let $form = $('#my-form');
@@ -31,9 +31,12 @@ $( document ).ready(function() {
 
   $(".point").on('click', function () {
     $(this).parent().find(".point-description").slideToggle(500);
-   });
+  });
 
-
+  $("#fav-icon").on('click', function() {
+    console.log("before click for icon");
+    alert("ASDASD");
+  })
 
 
 

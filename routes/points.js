@@ -16,20 +16,6 @@ module.exports = (db) => {
       });
   });
 
-  // router.get("/map/:id", (req, res) => {
-  //   console.log('inside get map id');
-  //   mapsWithAssociatedPoints(3)
-  //   //req.params.id
-  //   .then(map => {
-  //     res.json(map);
-  //   })
-  //   .catch(err => {
-  //     res.
-  //     status(500)
-  //     .json({ error: err.message });
-  //   });
-  // });
-
   // router.get("/user/:id", (req, res) => {
   //   getPointsByUserId(req.params.id)
   //   .then(points => {

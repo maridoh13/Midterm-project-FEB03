@@ -7,7 +7,6 @@ function initMap() {
       return text.users;
     })
     .then((data) => {
-
       let places = [];
 
       const param = parseInt(window.location.pathname.slice(5));

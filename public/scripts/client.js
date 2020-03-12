@@ -29,8 +29,8 @@ $( document ).ready(function() {
   })
 
 
-  $(".point").on('click', () => {
-     $(".point-description").slideToggle(500);
+  $(".point").on('click', function () {
+    $(this).parent().find(".point-description").slideToggle(500);
    });
 
 });

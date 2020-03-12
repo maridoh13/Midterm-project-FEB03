@@ -31,6 +31,19 @@
       <!-- Add new point/map from -->
       <% if (user === null) { %>
         <p>Please login to edit the map!</p>
+
+        <h3>List of <%= map[0].type %>s</h3>
+          <ul>
+            <% map.forEach(point => { %>
+            <div id="<%= point.id %>" class="point">
+              <%= point.name %>
+              <div class="container point-description">
+                <p><b>Address: </b><%= point.address %></p>
+                <p><b>Description: </b><%= point.description %></p>
+              </div>
+            </div>
+            <% }) %>
+          </ul>
         <% } else { %>
           <p>Add new places:</p>
 

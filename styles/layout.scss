@@ -10,9 +10,20 @@ body {
     width: 100%;
   }
 
+  h1 {
+    text-align: center;
+  }
   .map {
   margin-top: 20px;
   }
+
+  #searchBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
 
   header {
     #logoName {

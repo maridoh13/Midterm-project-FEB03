@@ -10,10 +10,9 @@ module.exports = (db) => {
     if(req.session.userId){
       user = req.session.userId;
       getUserById(user)
-        .then(data => {
-          user = data;
-          res.render('create-maps', {user});
-        })
+      .then(data => {
+        user = data;
+      })
     } else {
       user = null;
     }

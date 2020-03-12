@@ -10,22 +10,21 @@ module.exports = (db) => {
     if(req.session.userId){
       user = req.session.userId;
       getUserById(user)
-        .then(data => {
-          user = data;
-          res.render('create-maps', {user});
-        })
+      .then(data => {
+        user = data;
+      })
     } else {
       user = null;
     }
 
     getMapNameById(req.params.id)
-    .then(data => {
-      mapName = data.name;
-    })
+      .then(data => {
+        mapName = data.name;
+      })
 
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {
-        res.render('create-maps', { map, user, mapName });
+        res.render('create-maps', { mapName, map, user });
       })
       .catch(err => {
         res.

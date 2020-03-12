@@ -1,4 +1,4 @@
-// Map function
+// Function that generates points on map
 
 function initMap() {
 

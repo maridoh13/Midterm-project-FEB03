@@ -17,11 +17,6 @@ module.exports = (db) => {
       user = null;
     }
 
-    // getMapNameById(req.params.id)
-    //   .then(data => {
-    //     mapName = data.name;
-    //   })
-
     mapsWithAssociatedPoints(req.params.id)
       .then(map => {
         // res.render('create-maps', { mapName, map, user });

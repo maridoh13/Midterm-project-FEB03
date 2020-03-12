@@ -12,8 +12,22 @@ $( document ).ready(function() {
         data: formData,
         success: function(formData) {
           console.log('success');
+          window.location.reload();
         }
     })
   })
+
+  $(".delete-form").on("click", ({target}) => {
+    const pointId = $(target).parent().attr("id");
+    $.ajax({
+      url: `/api/points/${pointId}`,
+      method: 'DELETE',
+      success: function() {
+        window.location.reload()
+      }
+    })
+  })
+
+
 
 });

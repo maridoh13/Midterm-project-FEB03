@@ -82,5 +82,16 @@ const getMapByType = (type) => {
 }
 
 
+const deleteMyPoint = (pointId) => {
+  return db.query(`DELETE FROM points WHERE id = $1;`, [pointId])
+  .then(data => {
+    return data.rows;
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
-module.exports = { addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };
+
+
+module.exports = { deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };

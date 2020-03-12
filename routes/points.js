@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { mapsWithAssociatedPoints, getPointsByUserId, addMyPoints } = require('../db/queries')
+const { deleteMyPoint, mapsWithAssociatedPoints, getPointsByUserId, addMyPoints } = require('../db/queries')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -41,6 +41,22 @@ module.exports = (db) => {
   //     .json({ error: err.message });
   //   });
   // })
+  router.delete("/:point_id", (req,res) => {
+    const pointId = req.params.point_id
+
+    deleteMyPoint(pointId)
+      .then(data => {
+        res.status(200).end()
+        // res.redirect(`/map/${mapId}`)
+      })
+      .catch(err => {
+        res.
+        status(500)
+        .json({ error: err.message });
+      });
+
+  })
+
 
   router.post("/", (req, res) => {
     console.log("req body", req.body);

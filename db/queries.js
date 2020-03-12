@@ -38,6 +38,15 @@ const getPointsByUserId = (userId) => {
   })
 }
 
+const getMapsByUserId = (userId) => {
+  return db.query(`SELECT maps.name FROM maps JOIN users ON users.id = user_id WHERE user_id = $1`, [userId])
+  .then(data => {
+    return data.rows;
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
 const addMyPoints = (point) => {
   return db.query(`INSERT INTO points (user_id, map_id, name, address, lat, lng, description)
@@ -95,4 +104,6 @@ const deleteMyPoint = (pointId) => {
 
 
 
-module.exports = { deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };
+
+
+module.exports = { getMapsByUserId ,deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };

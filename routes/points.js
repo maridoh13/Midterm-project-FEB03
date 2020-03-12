@@ -65,9 +65,10 @@ module.exports = (db) => {
     // console.log("conversion", typeof req.params)
     // console.log(req.params)
     // const param = parseInt(window.location.pathname.slice(5));
+    // console.log(param)
 
     const userId = 4;
-    const mapId = 3;
+    const mapId = req.body.mapId;
     const address = req.body.address;
     const name = req.body.name;
     const lat = req.body.lat;

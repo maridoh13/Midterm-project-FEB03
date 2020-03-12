@@ -17,7 +17,7 @@ function initMap() {
             name: data[i].name,
             lat: parseFloat(data[i].lat),
             lng: parseFloat(data[i].lng),
-            content: data[i].name
+            content: data[i].description
           });
         }
       }
@@ -36,8 +36,10 @@ function initMap() {
           animation: google.maps.Animation.DROP
         });
 
+        let contentString = places[i].name + '</br></br>' + '"' + places[i].content + '"';
+
         let infoWin = new google.maps.InfoWindow({
-          content: places[i].content
+          content: contentString
         });
 
         nameMarker.addListener('click', function () {

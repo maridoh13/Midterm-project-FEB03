@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login</title>
+    <title>Profile</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -17,16 +17,43 @@
     <header>
       <%- include partials/_header.ejs %>
     </header>
-    <h1>HELLO WORLD!!!</h1>
-      <ul>
+      <div id="profile-wrapper"
+        <h1 class="profile-handle">Your Profile</h1>
+        <div id="profile-container">
+          <img class="avatar" src="https://i.ya-webdesign.com/images/dab-png-2.png">
+        </div>
+      </div>
 
-        <% listName.forEach(list => { %>
-          <div id=" <%= list.name %>">
-              <%= list.name %>
-            <% }) %>
+
+      <div id="list-wrapper">
+        <div id="created-list">
+          <h1>My Created Lists</h1>
+            <ul>
+              <% listName.forEach(list => { %>
+                <div id=" <%= list.name %>">
+                    <%= list.name %>
+                  <% }) %>
+            </ul>
+        </div>
+
+        <div id="my-favs">
+            <h1>My Fav LIST</h1>
+            <ul>
+              <% listName.forEach(list => { %>
+                <div id=" <%= list.name %>">
+                    <%= list.name %>
+                  <% }) %>
+            </ul>
+        </div>
 
 
-      </ul>
+
+
+
+
+        </div>
+      </div>
+
 
 
 

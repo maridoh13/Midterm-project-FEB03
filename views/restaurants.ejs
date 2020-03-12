@@ -10,6 +10,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <script src="https://kit.fontawesome.com/db233b2cc5.js" crossorigin="anonymous"></script>
+
+
   <title>Document</title>
 </head>
 <body>
@@ -24,7 +27,13 @@
     <h2>Restaurants</h2>
     <ul>
       <% restoNames.forEach(resto => { %>
-      <a href="/map/<%= resto.id %>"><p><%= resto.name %></p></a>
+        <p>
+          <i id="fav-icon" class="fas fa-star">
+          </i>
+        <a href="/map/<%= resto.id %>">
+            <%= resto.name %>
+        </a>
+        </p>
       <% }) %>
     </ul>
   </div>

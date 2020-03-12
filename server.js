@@ -52,6 +52,7 @@ const mapRoutes = require("./routes/map-id");
 const newmapRoutes = require("./routes/newmap");
 const homepageRoutes = require("./routes/index");
 const profileRoutes = require("./routes/profile");
+const favRoutes = require("./routes/fav");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -65,6 +66,7 @@ app.use("/map", mapRoutes(db));
 app.use("/newmap", newmapRoutes(db));
 app.use("/", homepageRoutes(db));
 app.use("/profile", profileRoutes(db));
+app.use("/favs", favRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above

@@ -10,16 +10,17 @@ function initMap() {
 
       let places = [];
 
+      const param = parseInt(window.location.pathname.slice(5));
 
       for (let i = 0; i < data.length; i++) {
-        // if(data[i].map_id === 3) {
+        if(data[i].map_id === param) {
           places.push({
             name: data[i].name,
             lat: parseFloat(data[i].lat),
             lng: parseFloat(data[i].lng),
             content: data[i].name
           });
-        // }
+        }
       }
 
 

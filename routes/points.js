@@ -45,6 +45,9 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log("req body", req.body);
     // res.status(200).send('OKAY!!')
+    // console.log(req.params)
+    console.log("conversion", typeof req.params)
+    // const param = parseInt(window.location.pathname.slice(5));
 
     const userId = 4;
     const mapId = 3;

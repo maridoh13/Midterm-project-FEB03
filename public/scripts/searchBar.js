@@ -26,6 +26,7 @@ function initAutocomplete() {
     let places = searchBox.getPlaces();
     if (places) {
       let coords = { lat: places[0].geometry.location.lat(), lng: places[0].geometry.location.lng() }
+      console.log(coords)
       document.querySelector('#lat input').value = Number(coords.lat).toFixed(4);
       document.querySelector('#lng input').value = Number(coords.lng).toFixed(4);
     }

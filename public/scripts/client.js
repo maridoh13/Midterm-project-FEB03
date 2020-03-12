@@ -28,6 +28,10 @@ $( document ).ready(function() {
     })
   })
 
+  $(".point").on('click', () => {
+    $(".point-description").slideToggle(500);
+  })
+
 
 
 });

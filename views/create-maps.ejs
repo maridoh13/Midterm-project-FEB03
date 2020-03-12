@@ -78,10 +78,10 @@
           <h3>List of <%= map[0].type %>s</h3>
           <ul>
             <% map.forEach(point => { %>
-            <div id="<%= point.id %>" class="point">
-              <%= point.name %>
+            <div id="<%= point.id %>">
+              <button class="point"><%= point.name %></button>
               <div class="delete-form">❌</div>
-              <div class="container point-description">
+              <div class="container point-description" aria-hidden="false">
                 <p><b>Address: </b><%= point.address %></p>
                 <p><b>Description: </b><%= point.description %></p>
               </div>

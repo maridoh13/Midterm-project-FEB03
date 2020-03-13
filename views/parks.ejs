@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css " />
     <!-- Bootstrap CSS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-  <title>Document</title>
+    <script src="https://kit.fontawesome.com/db233b2cc5.js" crossorigin="anonymous"></script>
+  <title>Maps about Parks</title>
 </head>
+
 <body>
   <header>
     <%- include partials/_header.ejs %>
@@ -24,18 +26,21 @@
     <h2>Maps about Parks:</h2>
     <ul>
       <% parkNames.forEach(park => { %>
-      <% console.log(park.id) %>
-      <a href="/map/<%= park.id %>"><p><%= park.name %></p></a>
+      <p>
+        <i data=<%= park.id %> method="POST" action="/favs/<%= park.id %>" id="fav-icon" class="far fa-star fav-item"></i>
+        <a href="/map/<%= park.id %>"><%= park.name %></a>
+      </p>
       <% }) %>
     </ul>
   </div>
 
 <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- map -->
     <script src="/scripts/mapFetcher.js"> </script>
+    <script src="/scripts/client.js"> </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXD5FUcV2yyZLRaY8ouajgQIEvqJMXH3A&callback=initMap"
     async defer></script>
 </body>

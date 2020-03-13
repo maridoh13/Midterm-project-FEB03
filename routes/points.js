@@ -16,17 +16,6 @@ module.exports = (db) => {
       });
   });
 
-  // router.get("/user/:id", (req, res) => {
-  //   getPointsByUserId(req.params.id)
-  //   .then(points => {
-  //     res.json(points);
-  //   })
-  //   .catch(err => {
-  //     res.
-  //     status(500)
-  //     .json({ error: err.message });
-  //   });
-  // })
   router.delete("/:point_id", (req,res) => {
     const pointId = req.params.point_id
 
@@ -40,18 +29,11 @@ module.exports = (db) => {
         status(500)
         .json({ error: err.message });
       });
-
   })
 
 
   router.post("/", (req, res) => {
     console.log("req body", req.body);
-    // res.status(200).send('OKAY!!')
-    // console.log(req.params)
-    // console.log("conversion", typeof req.params)
-    // console.log(req.params)
-    // const param = parseInt(window.location.pathname.slice(5));
-    // console.log(param)
 
     const userId = 4;
     const mapId = req.body.mapId;

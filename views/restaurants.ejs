@@ -16,7 +16,7 @@
 
 
 
-  <title>Document</title>
+  <title>Restaurants</title>
 </head>
 <body>
   <header>
@@ -32,7 +32,7 @@
     <ul>
       <% restoNames.forEach(resto => { %>
         <p>
-          <i data=<%= resto.id %> method="POST" action="/favs/<%= resto.id %>" id="fav-icon" class="fas fa-star"></i>
+          <i data=<%= resto.id %> method="POST" action="/favs/<%= resto.id %>" id="fav-icon" class="far fa-star fav-item"></i>
           <a href="/map/<%= resto.id %>"><%= resto.name %></a>
         </p>
       <% }) %>

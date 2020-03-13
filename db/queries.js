@@ -103,7 +103,7 @@ const deleteMyPoint = (pointId) => {
 }
 
 const getFavsByUserId = (userId) => {
-  return db.query(`SELECT maps.name from favs JOIN maps ON maps.id = map_id WHERE favs.user_id = $1;
+  return db.query(`SELECT favs.id as favId, maps.name from favs JOIN maps ON maps.id = map_id WHERE favs.user_id = $1;
   `, [userId])
   .then(data => {
     return data.rows;
@@ -126,6 +126,16 @@ const addFavs = (userId, mapId) => {
   })
 }
 
+const deleteMyFav = (favId) => {
+  return db.query(`DELETE FROM favs WHERE id = $1;`, [favId])
+  .then(data => {
+    return data.rows;
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
 
-module.exports = { addFavs, getFavsByUserId, getMapsByUserId ,deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };
+
+module.exports = { deleteMyFav, addFavs, getFavsByUserId, getMapsByUserId ,deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };

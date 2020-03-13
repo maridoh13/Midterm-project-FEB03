@@ -26,7 +26,7 @@ module.exports = (db) => {
 
         getFavsByUserId(userId)
           .then(favData => {
-            console.log(favData)
+            console.log("profile route", favData)
             res.render('profile', {listName, user, favData})
           })
 

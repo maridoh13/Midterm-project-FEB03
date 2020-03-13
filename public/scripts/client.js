@@ -33,12 +33,10 @@ $(document).ready(function() {
     $(this).parent().find(".point-description").slideToggle(500);
   });
 
-  $("i").on('click', function() {
+  $(".fav-item").on('click', function() {
     let $fav = $(this)
     let mapId = $fav.attr("data")
     console.log("FAV CLICK", mapId);
-
-
 
     $.ajax({
       url: `/favs/${mapId}`,
@@ -51,6 +49,20 @@ $(document).ready(function() {
     })
   })
 
+  $(".delete-icon").on("click", function() {
+    // alert("Hello! I am an alert box!!");
+
+    const $this = $(this).data('favid')
+    console.log($this);
+
+    $.ajax({
+      url: `/favs/${$this}`,
+      method: 'DELETE',
+      success: function() {
+        window.location.reload()
+      }
+    })
+  })
 
 
 });

@@ -1,53 +1,36 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserById, getMapsByUserId } = require('../db/queries')
+const { getFavsByUserId, getUserById, getMapsByUserId } = require('../db/queries')
 
-
-// module.exports = (db) => {
-
-//   router.get('/', (req, res) => {
-//     if(req.session.userId){
-//       user = req.session.userId;
-//       getUserById(user)
-//         .then(data => {
-//           user = data;
-//           res.render('profile', { user });
-//         })
-//     } else {
-//       res.render('profile', { user: null });
-//     }
-//   });
-
-
-//   return router;
-// };
 
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    let userId = 0;
+    let user = {};
     if(req.session.userId){
-      user = req.session.userId;
-      getUserById(user)
+      userId = req.session.userId;
+      getUserById(userId)
       .then(data => {
         user = data;
       })
     } else {
       user = null;
     }
-    console.log(user)
+    // console.log(typeof user)
 
-    getMapsByUserId(user)
+    getMapsByUserId(userId)
       .then(data => {
         const listName = data
+        console.log("user?",userId);
 
-        res.render('profile', {listName, user})
+        getFavsByUserId(userId)
+          .then(favData => {
+            console.log(favData)
+            res.render('profile', {listName, user, favData})
+          })
+
       })
-
-    // mapsWithAssociatedPoints(req.params.id)
-    //   .then(map => {
-    //     const mapId = req.params.id;
-    //     res.render('profile', { allMapsByUser, map, user, mapId });
-    //   })
       .catch(err => {
         res.
         status(500)

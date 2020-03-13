@@ -2,29 +2,34 @@
 
 <header>
   <nav class="navbar navbar-expand-md justify-content-sm-between navbar-light bg-light header-gradient">
-    <div class="contaner-fluid">
-      <a class="navbar-brand" href="/"><img src="/images/wikilogo.png" alt="logo" class="logo">Wiki Maps</a>
+    <div id="logoName">
+      <img src="/images/wikilogo.png" alt="logo" class="logo">
+      <a id="titleWS" class="navbar-brand" href="/">Wiki Maps</a>
     </div>
-        <button class="navbar-toggler" type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
+    <button class="navbar-toggler" type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/newmap"><button type="type" class="btn btn-outline-secondary btn-md" href="/createmap">Create Map</button></a>
-        </li>
-        <li class="nav-item active">
+      <div class="navbar-nav ml-auto">
+
+        <div id="rightButtons" class="nav-item active">
           <% if (user === null) { %>
-            <a href="/login"><button type="type" class="btn login btn-outline-secondary btn-md" href="/login">Login</button></a>
+            <a class="nav-link" href="/newmap"><button type="type" class="btn btn-outline-secondary btn-md">Create Map</button></a>
+            <a href="/login"><button type="type" class="btn login btn-outline-secondary btn-md">Login</button></a>
           <% } else { %>
+            <a class="nav-link" href="/newmap"><button type="type" class="btn btn-outline-secondary btn-md">Create Map</button></a>
+            <a class="nav-link" href="/profile"><button type="type" class="btn btn-outline-secondary btn-md">My Maps</button></a>
+
             <form class="form-inline logout" method="POST" action="/logout">
-              <span>Logged in as: <%= user.email %>! </span>
-              <!-- as: <%= user.email %>! -->
+              <span>Logged in as: <%= user.email %> </span>
               <button type="submit" class="btn btn-outline-secondary">Logout</button>
             </form>
           <% } %>
-        </li>
-      </ul>
+        </div>
+
+      </div>
     </div>
   </nav>
 </header>

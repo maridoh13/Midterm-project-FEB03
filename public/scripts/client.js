@@ -4,7 +4,7 @@ $(document).ready(function() {
     let $form = $('#my-form');
     event.preventDefault();
     const formData = $form.serialize();
-    console.log("Formdata submitted", formData);
+    console.log("formData submitted", formData);
 
     $.ajax({
       url: '/api/points',
@@ -33,9 +33,22 @@ $(document).ready(function() {
     $(this).parent().find(".point-description").slideToggle(500);
   });
 
-  $("#fav-icon").on('click', function() {
-    console.log("before click for icon");
-    alert("ASDASD");
+  $("i").on('click', function() {
+    let $fav = $(this)
+    let mapId = $fav.attr("data")
+    console.log("FAV CLICK", mapId);
+
+
+
+    $.ajax({
+      url: `/favs/${mapId}`,
+      method: 'POST',
+      data: mapId,
+      success: function($fav) {
+        console.log('successfully sent favs to db');
+        window.location.reload();
+      }
+    })
   })
 
 

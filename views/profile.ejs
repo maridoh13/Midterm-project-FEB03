@@ -39,9 +39,9 @@
         <div id="my-favs">
             <h1>My Fav LIST</h1>
             <ul>
-              <% listName.forEach(list => { %>
-                <div id=" <%= list.name %>">
-                    <%= list.name %>
+              <% favData.forEach(data => { %>
+                <div id=" <%= data.name %>">
+                    <%= data.name %>
                   <% }) %>
             </ul>
         </div>

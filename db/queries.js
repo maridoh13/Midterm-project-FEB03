@@ -106,8 +106,19 @@ const getFavsByUserId = (userId) => {
   return db.query(`SELECT maps.name from favs JOIN maps ON maps.id = map_id WHERE favs.user_id = $1;
   `, [userId])
   .then(data => {
-    console.log(data);
+    return data.rows;
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  })
+}
 
+
+const addFavs = (userId, mapId) => {
+  return db.query(`INSERT INTO favs (user_id,map_id) VALUES ($1, $2);
+  `, [userId, mapId])
+  .then(data => {
+    console.log(data);
     return data.rows;
   })
   .catch(err => {
@@ -117,4 +128,4 @@ const getFavsByUserId = (userId) => {
 
 
 
-module.exports = { getFavsByUserId, getMapsByUserId ,deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };
+module.exports = { addFavs, getFavsByUserId, getMapsByUserId ,deleteMyPoint, addMyPoints, mapsWithAssociatedPoints, getUserByEmail, mapsWithAssociatedPoints, getPointsByUserId, getMapByType, getUserById, getMapNameById };

@@ -33,7 +33,6 @@ module.exports = (db) => {
 
 
   router.post("/", (req, res) => {
-    console.log("req body", req.body);
 
     const userId = 4;
     const mapId = req.body.mapId;
@@ -52,6 +51,7 @@ module.exports = (db) => {
       lng: lng,
       description: desc
     };
+
     // 7 keyvalue pairs
     addMyPoints(object)
       .then(data => {

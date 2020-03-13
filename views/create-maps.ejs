@@ -78,7 +78,7 @@
         <% if (map.length === 0) { %>
           <p>No points on the map. Time to add one!</p>
         <% } else { %>
-        <h3 class="text-center">List of <%= map[0].type %>s</h3>
+        <h3 class="text-center">List of places</h3>
         <div class="container-fluid point-container padding">
           <% map.forEach(point => { %>
             <div class="col-md-12 name-details padding" id="<%= point.id %>">

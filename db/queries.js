@@ -118,7 +118,6 @@ const addFavs = (userId, mapId) => {
   return db.query(`INSERT INTO favs (user_id,map_id) VALUES ($1, $2);
   `, [userId, mapId])
   .then(data => {
-    console.log(data);
     return data.rows;
   })
   .catch(err => {

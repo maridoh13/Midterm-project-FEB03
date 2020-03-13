@@ -17,16 +17,13 @@ module.exports = (db) => {
     } else {
       user = null;
     }
-    // console.log(typeof user)
 
     getMapsByUserId(userId)
       .then(data => {
         const listName = data
-        console.log("user?",userId);
 
         getFavsByUserId(userId)
           .then(favData => {
-            console.log("profile route", favData)
             res.render('profile', {listName, user, favData})
           })
 

@@ -21,7 +21,6 @@ module.exports = (db) => {
   router.post('/:id', (req,res) => {
     const userId = req.session.userId;
     const mapId = req.params.id;
-    console.log("test", req.params.favId)
 
     addFavs(userId, mapId)
       .then(data => {
@@ -37,7 +36,6 @@ module.exports = (db) => {
 
   router.delete("/:id", (req,res) => {
     const favId = req.params.id
-    console.log("delete listener", favId)
 
     deleteMyFav(favId)
       .then(data => {
@@ -50,12 +48,6 @@ module.exports = (db) => {
         .json({ error: err.message });
       });
   })
-
-
-
-
-
-
 
   return router;
 };
